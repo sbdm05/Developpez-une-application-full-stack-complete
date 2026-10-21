@@ -22,6 +22,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //unique = true deux comptes ne peuvent pas partager le même e-mail ou le même nom.
     @Column(nullable = false, unique = true)
     private String email;
 
