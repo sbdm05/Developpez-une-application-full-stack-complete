@@ -7,6 +7,9 @@ public final class PasswordPolicy {
     public static final String REGEX =
             "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9\\s]).{8,}$";
 
+    // Pour la modification du profil : vide (= inchangé) OU conforme à la règle
+    public static final String OPTIONAL_REGEX = "^$|" + REGEX;
+
     public static final String MESSAGE =
             "Le mot de passe doit contenir au moins 8 caractères, dont un chiffre, "
             + "une minuscule, une majuscule et un caractère spécial";
