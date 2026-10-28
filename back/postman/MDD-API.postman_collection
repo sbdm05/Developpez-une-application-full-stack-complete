@@ -152,24 +152,6 @@
           "response": []
         },
         {
-          "name": "Get My Profil",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/api/me",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "api",
-                "me"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "name": "Register Bob",
           "request": {
             "method": "POST",
@@ -467,7 +449,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{ \"topicId\": 1, \"title\": \"Les records en Java\", \"content\": \"Test sur ce sujet.\" }",
+              "raw": "{ \"topicId\": 1, \"title\": \"Java \", \"content\": \"Test sur ce sujet.\" }",
               "options": {
                 "raw": {
                   "language": "json"
@@ -500,6 +482,60 @@
               "path": [
                 "api",
                 "feed"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Comments",
+      "item": [
+        {
+          "name": "Get the comment for an article",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/posts/1/comments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "posts",
+                "1",
+                "comments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Post a comment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"content\": \"Très clair, merci !\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/posts/1/comments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "posts",
+                "1",
+                "comments"
               ]
             }
           },
