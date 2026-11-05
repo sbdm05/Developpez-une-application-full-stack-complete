@@ -22,6 +22,7 @@ public class JwtService {
     }
 
     /** Crée un token signé dont le "subject" est l'id de l'utilisateur. */
+    /*ici on compose le token subject + date + expiration + signature */
     public String generateToken(Long userId) {
         Date now = new Date();
         return Jwts.builder()
