@@ -12,13 +12,25 @@ import { AuthService } from './core/services/auth.service';
   templateUrl: './app.html',
 })
 export class App {
-  // protected readonly title = signal('front');
-  // test connexion back
+private readonly http = inject(HttpClient);
+  private readonly authService = inject(AuthService);
 
-constructor() {
-      inject(AuthService)
-        .login({ identifier: 'alice...', password: 'M...' })
-        .subscribe({ next: () => console.log('Connecté'), error: (e: any) => console.log('Erreur', e.status) });
+  constructor() {
+    // ici on vérifie si présence de token
+    if (!this.authService.isLoggedIn()) {
+      this.authService
+        .login({ identifier: 'alice', password: 'Mµµµµµ!' })
+        .subscribe(() => this.loadTopics());
+    } else {
+      this.loadTopics();
     }
+  }
+
+  private loadTopics(): void {
+    this.http.get(`${environment.apiUrl}/topics`).subscribe({
+      next: (topics) => console.log('Topics', topics),
+      error: (e) => console.log('Erreur', e.status),
+    });
+  }
   
 }
