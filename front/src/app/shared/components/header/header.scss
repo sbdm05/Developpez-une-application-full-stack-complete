@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding: 0 2rem;
+  border-bottom: 1px solid #000;
+}
+
+.h_logo {
+  display: block;
+  height: 56px;
+}
+
+// Mobile : header masqué (pages Connexion / Inscription)
+@media (max-width: 599px) {
+  :host {
+    display: none;
+  }
+}
