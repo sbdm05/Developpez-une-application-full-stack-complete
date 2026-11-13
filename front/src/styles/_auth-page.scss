@@ -1,0 +1,57 @@
+// Mise en page commune aux pages Inscription et Connexion
+.auth-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem 2rem;
+}
+
+// Flèche en haut à gauche, à la hauteur du titre
+.auth-page_back {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+// Grand logo : mobile uniquement (en desktop, il est dans le header)
+.auth-page_logo {
+  display: none;
+}
+
+.auth-page_title {
+  margin: 0.5rem 0 2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+}
+
+.auth-form_error {
+  margin: 0 0 1rem;
+  color: var(--mat-sys-error);
+  text-align: center;
+}
+
+.auth-form_submit {
+  align-self: center;
+  min-width: 140px;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 599px) {
+  .auth-page {
+    padding-top: 4rem; // place pour la flèche
+  }
+
+  .auth-page_logo {
+    display: block;
+    width: 180px;
+    margin-bottom: 1rem;
+  }
+}
