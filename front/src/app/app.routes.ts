@@ -24,12 +24,30 @@ export const routes: Routes = [
   },
 
   // Pages connectées
+ // Pages connectées : affichées dans MainLayout (header + navigation)
   {
-    path: 'feed',
-    title: 'MDD - Articles',
+    path: '',
     canActivate: [authGuard],
-    loadComponent: () => import('./pages/feed/feed').then((m) => m.Feed),
+    loadComponent: () => import('./layout/main-layout/main-layout').then((m) => m.MainLayout),
+    children: [
+      {
+        path: 'feed',
+        title: 'MDD - Articles',
+        loadComponent: () => import('./pages/feed/feed').then((m) => m.Feed),
+      },
+      {
+        path: 'topics',
+        title: 'MDD - Thèmes',
+        loadComponent: () => import('./pages/topics/topics').then((m) => m.Topics),
+      },
+      {
+        path: 'profile',
+        title: 'MDD - Profil',
+        loadComponent: () => import('./pages/profile/profile').then((m) => m.Profile),
+      },
+    ],
   },
+
 
   // Toute URL inconnue renvoie à l'accueil
   { path: '**', redirectTo: '' },
