@@ -1,2 +1,23 @@
-<p>[header à venir]</p>
-<router-outlet />
+<header class="main-header">
+  <a routerLink="/feed" class="main-header_logo-link" aria-label="Articles - accueil MDD">
+    <img src="/images/logo_p6.png" alt="MDD" class="main-header_logo" />
+  </a>
+
+  <nav class="main-header_nav" aria-label="Navigation principale">
+    <button type="button" class="main-header_logout" (click)="logout()">Se déconnecter</button>
+
+    @for (link of navLinks; track link.path) {
+      <a [routerLink]="link.path" routerLinkActive="is-active" class="main-header_link">
+        {{ link.label }}
+      </a>
+    }
+
+    <a routerLink="/profile" routerLinkActive="is-active" class="main-header_profile" aria-label="Mon profil">
+      <mat-icon>account_circle</mat-icon>
+    </a>
+  </nav>
+</header>
+
+<main class="main-content">
+  <router-outlet />
+</main>
