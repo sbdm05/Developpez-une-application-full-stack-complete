@@ -10,12 +10,6 @@ import { MatButton, MatButtonModule } from '@angular/material/button';
   templateUrl: './feed.html',
 })
 export class Feed {
-private readonly authService = inject(AuthService);
-  private readonly router = inject(Router);
 
-  logout(): void {
-    this.authService.logout();
-    this.router.navigate(['/']);
-  }
 
 }
