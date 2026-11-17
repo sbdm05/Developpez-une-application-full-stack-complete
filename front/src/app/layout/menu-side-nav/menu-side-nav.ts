@@ -1,10 +1,10 @@
 import { Component, output } from '@angular/core';
 import { NAV_LINKS } from '../main-layout/nav-links';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  imports: [RouterLink, MatIcon],
+  imports: [RouterLink, RouterLinkActive, MatIcon],
   selector: 'app-menu-side-nav',
   styleUrl: './menu-side-nav.scss',
   templateUrl: './menu-side-nav.html',
