@@ -2,6 +2,16 @@
   display: block;
 }
 
+// Le conteneur occupe toute la hauteur visible ; le contenu défile à l'intérieur
+.layout {
+  height: 100dvh;
+}
+
+.layout_sidenav {
+  width: 60%;
+  max-width: 280px;
+}
+
 .main-header {
   display: flex;
   align-items: center;
@@ -50,8 +60,31 @@
   }
 }
 
-// Page active : lien ou icône en violet
 .main-header_link.is-active,
 .main-header_profile.is-active {
   color: var(--mat-sys-primary);
+}
+
+// Burger : visible en mobile uniquement
+.main-header_burger {
+  display: none;
+}
+
+@media (max-width: 599px) {
+  .main-header {
+    height: 56px;
+    padding: 0 0.5rem 0 1rem;
+  }
+
+  .main-header_logo {
+    height: 40px;
+  }
+
+  .main-header_nav {
+    display: none;
+  }
+
+  .main-header_burger {
+    display: inline-flex;
+  }
 }

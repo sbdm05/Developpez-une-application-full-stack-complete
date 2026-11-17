@@ -1,23 +1,51 @@
-<header class="main-header">
-  <a routerLink="/feed" class="main-header_logo-link" aria-label="Articles - accueil MDD">
-    <img src="/images/logo_p6.png" alt="MDD" class="main-header_logo" />
-  </a>
+<mat-sidenav-container class="layout">
+  <!-- Panneau mobile, à droite, par-dessus la page -->
+  <mat-sidenav
+    class="layout_sidenav"
+    position="end"
+    mode="over"
+    [opened]="menuOpen()"
+    (closedStart)="closeMenu()"
+  >
+    <app-menu-side-nav (navigate)="closeMenu()" (logout)="logout()" />
+  </mat-sidenav>
 
-  <nav class="main-header_nav" aria-label="Navigation principale">
-    <button type="button" class="main-header_logout" (click)="logout()">Se déconnecter</button>
-
-    @for (link of navLinks; track link.path) {
-      <a [routerLink]="link.path" routerLinkActive="is-active" class="main-header_link">
-        {{ link.label }}
+  <mat-sidenav-content>
+    <header class="main-header">
+      <a routerLink="/feed" class="main-header_logo-link" aria-label="Articles - accueil MDD">
+        <img src="/images/logo_p6.png" alt="MDD" class="main-header_logo" />
       </a>
-    }
 
-    <a routerLink="/profile" routerLinkActive="is-active" class="main-header_profile" aria-label="Mon profil">
-      <mat-icon>account_circle</mat-icon>
-    </a>
-  </nav>
-</header>
+      <!-- Navigation desktop -->
+      <nav class="main-header_nav" aria-label="Navigation principale">
+        <button type="button" class="main-header_logout" (click)="logout()">Se déconnecter</button>
 
-<main class="main-content">
-  <router-outlet />
-</main>
+        @for (link of navLinks; track link.path) {
+          <a [routerLink]="link.path" routerLinkActive="is-active" class="main-header_link">
+            {{ link.label }}
+          </a>
+        }
+
+        <a routerLink="/profile" routerLinkActive="is-active" class="main-header_profile" aria-label="Mon profil">
+          <mat-icon>account_circle</mat-icon>
+        </a>
+      </nav>
+
+      <!-- Burger mobile -->
+      <button
+        matIconButton
+        type="button"
+        class="main-header_burger"
+        aria-label="Ouvrir le menu"
+        [attr.aria-expanded]="menuOpen()"
+        (click)="openMenu()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+    </header>
+
+    <main class="main-content">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

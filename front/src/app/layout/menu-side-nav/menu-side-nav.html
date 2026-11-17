@@ -1,0 +1,19 @@
+<nav class="side-menu" aria-label="Navigation principale">
+  <button type="button" class="side-menu_logout" (click)="logout.emit()">Se déconnecter</button>
+
+  @for (link of navLinks; track link.path) {
+    <a [routerLink]="link.path" routerLinkActive="is-active" class="side-menu_link" (click)="navigate.emit()">
+      {{ link.label }}
+    </a>
+  }
+
+  <a
+    routerLink="/profile"
+    routerLinkActive="is-active"
+    class="side-menu_profile"
+    aria-label="Mon profil"
+    (click)="navigate.emit()"
+  >
+    <mat-icon>account_circle</mat-icon>
+  </a>
+</nav>
